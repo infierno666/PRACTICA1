@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Práctica JavaScript #1</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJvT2I5xQ15P2wI1W1/4G6gY5QW2G/wM8tL61/3Qz5Vf21A1tI1hG6P7E5Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="description" content="prácticas de JavaScript con 12 ejercicios y modales." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body id="todo">
+  <nav class="app-nav">
+    <div class="nav-container">
+      <div class="logo-area">
+        <!-- Ícono Placeholder para el Logo -->
+        <i class="fas fa-terminal nav-logo" style="font-size: 30px; color: var(--neon-blue);"></i>
+        <div class="nav-title">PRACTICA #1</div>
+      </div>
+      <div class="nav-links">
+        <a href="#ejercicios">Ejercicios</a>
+        <a href="https://github.com/google/gemini-api/tree/main/docs" target="_blank">Docs</a>
+      </div>
+    </div>
+  </nav>
+  <header class="app-header">
+    <div class="container">
+      <h1 class="site-title neon-glow">Práctica 1 de JavaScript</h1>
+      <p class="site-desc">Interfaz temática Futurista/Ciberpunk con 12 ejercicios. Haz clic en cualquier tarjeta
+        para
+        abrir el ejercicio en un modal e interactuar.</p>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+
+    <!-- CONTENIDO MOCK PARA EJERCICIOS DOM (5, 6, 7, 8) -->
+    <div id="dom-target-area" class="ejercicio-interface"
+      style="margin-bottom: 40px; border-color: var(--neon-magenta); background: rgba(255, 32, 196, 0.05);">
+      <p style="color: var(--neon-magenta); font-family: 'Orbitron', sans-serif;">
+        // CONTEXTO DE LA PÁGINA: Contenido de prueba para Ejercicios DOM (5, 6, 7, 8)
+      </p>
+
+      <p>Este es el primer párrafo de prueba. Contiene un <a href="https://ejemplo.com/p1_link1">enlace 1</a> y otro
+        <a href="https://ejemplo.com/p1_link2">enlace 2</a>. Necesario para el Ejercicio 5 y 8.
+      </p>
+      <p>
+        Este es el segundo párrafo de prueba. Solo tiene un <a href="https://ejemplo.com/p2_link3">enlace 3</a>.
+      </p>
+      <p id="parrafo-tercero">
+        Este es el tercer párrafo. Contiene varios enlaces: <a href="#sec1" class="section-link"
+          data-target="section-1">Sección A</a>,
+        <a href="#sec2" class="section-link" data-target="section-2">Sección B</a>,
+        <a href="#sec3" class="section-link" data-target="section-3">Sección C</a> y
+        <a href="https://ejemplo.com/p3_link4">enlace 4</a>.
+      </p>
+
+      <div id="section-1" class="collapsible-section"
+        style="padding: 15px; border: 1px dashed var(--neon-blue); margin-bottom: 10px;">
+        <h4 style="color: var(--neon-blue); font-family: 'Orbitron', sans-serif;">SECCIÓN 1 (COLLAPSABLE)</h4>
+        <p>Contenido relacionado al primer enlace de la sección.</p>
+        <a href="#" id="show-more-link">Mostrar Contenido Completo</a>
+        <span id="extra-content" style="display: none;">. Este es el contenido extra que debe aparecer al hacer clic en
+          el enlace de arriba. Después de aparecer, el enlace debe desaparecer.</span>
+      </div>
+      <div id="section-2" class="collapsible-section"
+        style="padding: 15px; border: 1px dashed var(--neon-blue); margin-bottom: 10px;">
+        <h4 style="color: var(--neon-blue); font-family: 'Orbitron', sans-serif;">SECCIÓN 2 (COLLAPSABLE)</h4>
+        <p>Contenido relacionado al segundo enlace de la sección.</p>
+      </div>
+      <div id="section-3" class="collapsible-section"
+        style="padding: 15px; border: 1px dashed var(--neon-blue); margin-bottom: 10px;">
+        <h4 style="color: var(--neon-blue); font-family: 'Orbitron', sans-serif;">SECCIÓN 3 (COLLAPSABLE)</h4>
+        <p>Contenido relacionado al tercer enlace de la sección.</p>
+      </div>
+
+      <ul id="new-list-target" style="margin-top: 20px; list-style-type: '⚡ ';">
+        <li style="color: var(--neon-green);">Elemento de lista existente.</li>
+      </ul>
+    </div>
+    <!-- FIN CONTENIDO MOCK -->
+
+
+    <section id="ejercicios" class="ejercicios-section">
+      <h2 class="section-title">Ejercicios</h2>
+      <div class="ejercicios-grid" role="list" aria-label="Lista de ejercicios">
+        <!-- 12 tarjetas: data-modal-target apunta al id del modal correspondiente -->
+
+        <!-- EJERCICIO 1: Calculadora Estándar -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio1" data-exercise-number="1" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 01</span>
+            <h4 class="card-title">Calculadora Estándar</h4>
+            <p class="card-description">Realiza operaciones aritméticas básicas (+, -, *, /).</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 2: Conjetura de Collatz -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio2" data-exercise-number="2" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-infinity"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 02</span>
+            <h4 class="card-title">Conjetura de Collatz</h4>
+            <p class="card-description">Verifica y muestra la secuencia de Collatz para un entero dado.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 3: Condicionales (if / alert) -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio3" data-exercise-number="3" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 03</span>
+            <h4 class="card-title">Condicionales (if)</h4>
+            <p class="card-description">Completa las condiciones lógicas para mostrar mensajes correctos.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 4: Análisis de Array (valores) -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio4" data-exercise-number="4" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-list-ol"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 04</span>
+            <h4 class="card-title">Análisis de Array</h4>
+            <p class="card-description">Determina resultados de lógica, texto y operaciones numéricas de un
+              array.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 5: Info DOM (Enlaces) -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio5" data-exercise-number="5" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-link"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 05</span>
+            <h4 class="card-title">Info DOM (Enlaces)</h4>
+            <p class="card-description">Muestra número total, dirección del penúltimo y enlaces por párrafo.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 6: Mostrar/Ocultar Texto -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio6" data-exercise-number="6" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 06</span>
+            <h4 class="card-title">Toggle Contenido</h4>
+            <p class="card-description">Revela texto completo en un enlace y oculta el enlace después.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 7: Añadir Nodos a Lista -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio7" data-exercise-number="7" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-plus-square"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 07</span>
+            <h4 class="card-title">Añadir Nodos DOM</h4>
+            <p class="card-description">Agrega nuevos elementos (li) a una lista existente con un botón.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 8: Secciones Colapsables -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio8" data-exercise-number="8" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-toggle-off"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 08</span>
+            <h4 class="card-title">Secciones Colapsables</h4>
+            <p class="card-description">Muestra/oculta secciones de contenido al hacer clic en un enlace.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 9: Eventos de Ratón y Teclado -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio9" data-exercise-number="9" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-mouse-pointer"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 09</span>
+            <h4 class="card-title">Eventos (Mouse/Key)</h4>
+            <p class="card-description">Muestra coordenadas y datos de tecla, cambiando el fondo.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 10: Análisis de Texto -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio10" data-exercise-number="10" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-spell-check"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 10</span>
+            <h4 class="card-title">Análisis de Texto</h4>
+            <p class="card-description">Lee texto, lo divide, y muestra análisis en una nueva ventana.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 11: Zonas de Pantalla -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio11" data-exercise-number="11" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-compass"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 11</span>
+            <h4 class="card-title">Zonas de Pantalla</h4>
+            <p class="card-description">Informa en qué cuadrante de la pantalla se ha pulsado el ratón.</p>
+          </div>
+        </button>
+
+        <!-- EJERCICIO 12: Formulario de Registro -->
+        <button class="ejercicio-card" data-modal-target="#modal-ejercicio12" data-exercise-number="12" role="listitem">
+          <div class="card-icon-area">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <div class="card-text-content">
+            <span class="card-number">Ej. 12</span>
+            <h4 class="card-title">Formulario de Registro</h4>
+            <p class="card-description">Diseña y valida un formulario completo con 10 campos obligatorios.</p>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- Contenedor para modales: todos los modales definidos aquí. Solo un overlay global. -->
+    <div id="modal-overlay" class="modal-overlay" tabindex="-1" aria-hidden="true"></div>
+
+    <!-- ---------------------------------------------------- -->
+    <!-- MODALES (1..12) -->
+    <!-- ---------------------------------------------------- -->
+
+    <!-- Modal 1: Calculadora -->
+    <div id="modal-ejercicio1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio1-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio1-title">Ejercicio 1: Calculadora Estándar</h3>
+        <p class="modal-desc">Realiza operaciones de suma, resta, multiplicación y división.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio1">
+          <div class="ejercicio-content-area">
+            <input type="number" id="calcNum1" placeholder="Número 1" value="10">
+            <input type="number" id="calcNum2" placeholder="Número 2" value="5">
+            <div>
+              <button class="btn-neon" onclick="calcular('sumar')"><i class="fas fa-plus"></i> Sumar</button>
+              <button class="btn-neon" onclick="calcular('restar')"><i class="fas fa-minus"></i> Restar</button>
+              <button class="btn-neon" onclick="calcular('multiplicar')"><i class="fas fa-times"></i>
+                Multiplicar</button>
+              <button class="btn-neon" onclick="calcular('dividir')"><i class="fas fa-divide"></i> Dividir</button>
+            </div>
+            <div class="output-box" id="calcResultado">Esperando operación...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Conjetura de Collatz -->
+    <div id="modal-ejercicio2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio2-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio2-title">Ejercicio 2: Conjetura de Collatz</h3>
+        <p class="modal-desc">Verifica la conjetura de Collatz para un entero (N &gt; 0) y muestra la secuencia.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio2">
+          <div class="ejercicio-content-area">
+            <input type="number" id="collatzNum" placeholder="Introduce un entero (ej: 6)" value="6">
+            <button class="btn-neon" onclick="verificarCollatz()">Generar Secuencia</button>
+            <div class="output-box" id="collatzResultado">Secuencia: -</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Condicionales (if / alert) -->
+    <div id="modal-ejercicio3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio3-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio3-title">Ejercicio 3: Condicionales (`if` / `alert`)</h3>
+        <p class="modal-desc">Completa las condiciones lógicas para que todos los mensajes se muestren correctamente
+          dadas `var numero1 = 5;` y `var numero2 = 8;`.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio3">
+          <div class="ejercicio-content-area">
+            <p style="color: var(--text-primary);">Valores iniciales: `numero1 = 5`, `numero2 = 8`.</p>
+            <button class="btn-neon" onclick="comprobarCondicionales()">Comprobar Condiciones</button>
+            <div class="output-box" id="condicionalResultado">
+              <span style="color: var(--neon-green);">Las condiciones evaluadas fueron:</span>
+              <pre id="condicionalCode"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Análisis de Array -->
+    <div id="modal-ejercicio4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio4-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio4-title">Ejercicio 4: Análisis de Array (`valores`)</h3>
+        <p class="modal-desc">Analiza el array `[true, 5, false, "hola", "adios", 2]` para comparación de texto,
+          operaciones booleanas y operaciones matemáticas.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio4">
+          <div class="ejercicio-content-area">
+            <button class="btn-neon" onclick="analizarArray()">Realizar Análisis</button>
+            <div class="output-box" id="arrayResultado"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Info DOM (Enlaces) -->
+    <div id="modal-ejercicio5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio5-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio5-title">Ejercicio 5: Info DOM (Enlaces)</h3>
+        <p class="modal-desc">Muestra el número total de enlaces, la dirección del penúltimo enlace y el número de
+          enlaces en el tercer párrafo.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio5">
+          <div class="ejercicio-content-area">
+            <button class="btn-neon" onclick="obtenerInfoDOM()">Obtener Información DOM</button>
+            <div class="output-box" id="domResultado"></div>
+            <small style="color: var(--neon-magenta);">El tercer párrafo para el cálculo es el que tiene ID
+              `parrafo-tercero`.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6: Mostrar/Ocultar Texto -->
+    <div id="modal-ejercicio6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio6-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio6-title">Ejercicio 6: Toggle Contenido</h3>
+        <p class="modal-desc">Al pinchar sobre el enlace "Mostrar Contenido Completo" (ubicado en la sección de
+          contexto), se debe mostrar el texto oculto y desaparecer el enlace.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio6">
+          <div class="ejercicio-content-area">
+            <p>Haz clic en el enlace dentro de la sección <strong style="color: var(--neon-magenta);">"SECCIÓN 1
+                (COLLAPSABLE)"</strong> de la página principal.</p>
+            <div class="output-box" id="toggleResultado">Estado: Esperando acción.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 7: Añadir Nodos a Lista -->
+    <div id="modal-ejercicio7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio7-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio7-title">Ejercicio 7: Añadir Nodos DOM</h3>
+        <p class="modal-desc">Añade nuevos elementos a la lista (`ul#new-list-target`) cada vez que se pulsa el
+          botón, usando las funciones DOM.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio7">
+          <div class="ejercicio-content-area">
+            <button class="btn-neon" onclick="añadirElementoLista()">Añadir Nuevo Elemento a Lista</button>
+            <div class="output-box" id="listaResultado"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 8: Secciones Colapsables -->
+    <div id="modal-ejercicio8" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio8-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio8-title">Ejercicio 8: Secciones Colapsables</h3>
+        <p class="modal-desc">Muestra/Oculta las secciones (`collapsible-section`) al hacer clic en los enlaces del
+          tercer párrafo (`section-link`), y cambia el texto del enlace (Ocultar/Mostrar).</p>
+        <div class="ejercicio-interface" id="interface-ejercicio8">
+          <div class="ejercicio-content-area">
+            <p>Interactúa con los enlaces (<strong style="color: var(--neon-magenta);">Sección A, Sección B,
+                Sección C</strong>) ubicados en el tercer párrafo de la página principal para ocultar/mostrar
+              el contenido relacionado.</p>
+            <div class="output-box" id="colapsarResultado">Estado: Eventos DOM aplicados.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 9: Eventos de Ratón y Teclado -->
+    <div id="modal-ejercicio9" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio9-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio9-title">Ejercicio 9: Eventos (Mouse/Key)</h3>
+        <p class="modal-desc">Al mover el ratón o pulsar una tecla en cualquier punto de la ventana, se muestra
+          información detallada. El fondo cambia con los eventos de ratón/tecla.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio9">
+          <div class="ejercicio-content-area">
+            <div id="infoCuadro"
+              style="min-height: 150px; padding: 15px; border: 2px solid var(--neon-blue); background-color: white; color: var(--bg); border-radius: var(--radius); transition: background-color 0.5s ease;">
+              <p id="mensajeTipo">Mueve el ratón o pulsa una tecla.</p>
+              <p id="mensajeInfo"></p>
+            </div>
+            <small style="color: var(--neon-magenta);">El cuadro de información cambia de color al pulsar el
+              ratón (Amarillo) o una tecla (Azul).</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 10: Análisis de Texto -->
+    <div id="modal-ejercicio10" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio10-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio10-title">Ejercicio 10: Análisis de Texto</h3>
+        <p class="modal-desc">Lee una cadena de texto, la divide en un array de palabras y muestra información
+          estadística y ordenamientos en una nueva ventana.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio10">
+          <div class="ejercicio-content-area">
+            <textarea id="textoAnalisis" rows="4" style="width: 100%;"
+              placeholder="Escribe aquí tu cadena de texto... (ej: JavaScript es un lenguaje potente y flexible)">JavaScript es un lenguaje potente y flexible</textarea>
+            <button class="btn-neon" onclick="analizarTexto()">Analizar y Abrir Ventana</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 11: Zonas de Pantalla -->
+    <div id="modal-ejercicio11" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio11-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio11-title">Ejercicio 11: Zonas de Pantalla</h3>
+        <p class="modal-desc">Informa al usuario en qué zona de la pantalla (cuadrante) ha pulsado el ratón (se
+          ejecuta al hacer clic en cualquier parte del modal).</p>
+        <div class="ejercicio-interface" id="interface-ejercicio11">
+          <div class="ejercicio-content-area">
+            <p style="color: var(--text-primary);">Haz clic en cualquier parte de la ventana para detectar el
+              cuadrante (arriba/abajo, izquierda/derecha).</p>
+            <div class="output-box" id="zonaResultado">Resultado: Esperando clic...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 12: Formulario de Registro -->
+    <div id="modal-ejercicio12" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ejercicio12-title">
+      <div class="modal-content">
+        <button class="close-btn" aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-ejercicio12-title">Ejercicio 12: Formulario de Registro y Validación</h3>
+        <p class="modal-desc">Diseña un formulario con 10 campos y valida que todos sean obligatorios.</p>
+        <div class="ejercicio-interface" id="interface-ejercicio12">
+          <div class="ejercicio-content-area">
+            <form id="registroForm" onsubmit="event.preventDefault(); validarFormulario()">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div class="input-group"><label>Nombre:</label><input type="text" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="input-group"><label>Apellido Paterno:</label><input type="text" name="apellidoPaterno"
+                    placeholder="Apellido Paterno"></div>
+                <div class="input-group"><label>Apellido Materno:</label><input type="text" name="apellidoMaterno"
+                    placeholder="Apellido Materno"></div>
+                <div class="input-group"><label>Dirección:</label><input type="text" name="direccion"
+                    placeholder="Dirección"></div>
+                <div class="input-group"><label>Edad:</label><input type="number" name="edad" placeholder="Edad"
+                    min="1"></div>
+                <div class="input-group"><label>Fecha Nacimiento:</label><input type="date" name="fechaNacimiento">
+                </div>
+                <div class="input-group">
+                  <label>Sexo:</label>
+                  <select name="sexo">
+                    <option value="">Seleccione...</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                  </select>
+                </div>
+                <div class="input-group"><label>Email:</label><input type="email" name="email"
+                    placeholder="correo@dominio.com"></div>
+                <div class="input-group"><label>Teléfono:</label><input type="tel" name="telefono"
+                    placeholder="555-555-555"></div>
+                <div class="input-group"><label>Ciudad:</label><input type="text" name="ciudad" placeholder="Ciudad">
+                </div>
+              </div>
+              <button type="submit" class="btn-neon" style="margin-top: 20px;">Validar Registro</button>
+            </form>
+            <div class="validation-errors" id="formErrores" hidden></div>
+            <div class="output-box" id="formResultado"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN MODALES -->
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <small>© 2025 • Práctica 1 de JavaScript (Entrega: 07-11-2025)</small>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>
